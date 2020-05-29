@@ -1,15 +1,13 @@
 # README 
 
-This is README.md. 
+With a small group I was project lead for, we engineered a website scraper that analyzes static content of a website and provides statistical analysis on the findings. This software focuses on static content 
+of hypertext markup language (HTML) pages. The static content that this software system will concern itself with is: images, javascript, cascading style sheets (CSS), hyperlinks, and data files. The data files category will contain archives to include zip, tar, and 7z files; video containers to include mkv and mp4; audio containers to include m4a, mka, and ogg; and finally, other data files including deb, exe, and cpp files.
 
-This is for project level documentation within GitLab. While the project is getting kicked off, we can organize the different components of the project here. I think it would be a good idea for everyone to edit this file locally and push a commit early so we can make sure that our setups are all working. 
+The only parameters required at the interface will be the path to local copy of the site and one or more URLs to the local directory structure.
 
+"www.example.com"
 
-[Agile Board](https://issues350.cs.odu.edu/projects/tangerine2summer/agile/board)
+for example, will run the program
 
-This is our Agile board. We use it to track the progress of individual user stories from interface design (think the skeletons classes from the JUnit assignments) through unit tests, implementation, and completion. 
-
-[Design Wiki](https://forge350.cs.odu.edu/bklarman/Tangerine2/wikis/design) 
-
-This is where we are collaborating on our design. It's got details and instructions initially, but we're going to delete that and replace it with design notes, UML descriptions, etc. 
+After you run the program on the directory in question, you should receive output in the form of a JSON file, an Excel file, and a text file.
 
