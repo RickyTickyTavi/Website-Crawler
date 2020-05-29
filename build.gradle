@@ -1,0 +1,138 @@
+apply plugin: 'java'    
+apply plugin: 'eclipse'
+apply plugin: 'jacoco'
+apply plugin: 'pmd'
+apply plugin: 'checkstyle'
+apply plugin: 'org.hidetake.ssh'  
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+buildscript {
+  repositories {
+  jcenter()
+    ivy {
+   		url 'https://secweb.cs.odu.edu/~zeil/ivyrepo'
+    }
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:2.0.0"
+    classpath 'org.hidetake:gradle-ssh-plugin:2.7.0+'
+    classpath "edu.odu.cs.zeil:report_accumulator:1.2"
+  }
+}
+
+import edu.odu.cs.zeil.report_accumulator.ReportStats
+import edu.odu.cs.zeil.report_accumulator.ReportsDeploy
+
+repositories {
+    maven {
+    	url "http://www.robotooling.com/maven/"
+	}
+    mavenCentral()
+}
+
+dependencies {
+  testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
+  testCompile group: 'junit', name: 'junit-dep', version: '4.11'
+  testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
+  testCompile group: 'commons-io', name: 'commons-io', version: '2.6'
+  testCompile group: 'org.skyscreamer', name: 'jsonassert', version: '1.5.0'
+  compile 'org.jsoup:jsoup:1.12.1'
+  compile 'org.apache.poi:poi:3.12+'
+  compile 'org.apache.poi:poi-ooxml:3.12+'
+  compile 'com.cedarsoftware:json-io:4.10.1'
+  compile 'commons-io:commons-io:2.6' 
+}
+
+apply plugin: 'com.github.spotbugs'
+
+test {
+	reports{
+		html.enabled = true
+	}
+	
+	ignoreFailures = true
+	
+	testLogging {
+		events "PASSED", "FAILED", "SKIPPED"
+	}
+}
+
+spotbugs {
+	toolVersion = '3.1.12'
+}
+
+pmd {
+    ignoreFailures = true
+    ruleSets = [
+        "category/java/bestpractices.xml",
+        "category/java/codestyle.xml",
+        "category/java/design.xml",
+        "category/java/documentation.xml",
+        "category/java/errorprone.xml",
+        "category/java/multithreading.xml",
+        "category/java/performance.xml",
+    ]
+}
+
+// SpotBugs
+spotbugsMain {
+    ignoreFailures = true
+    effort = 'max'
+    reportLevel = 'medium'
+    reports {
+       xml.enabled = false
+       html.enabled = true
+    }
+}
+
+spotbugsTest.enabled = false
+// End SpotBugs config
+
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+    failOnError false
+}
+
+jacoco {
+    toolVersion = "0.8.4"
+}
+
+jacocoTestReport {
+    reports {
+        html.enabled true
+        xml.enabled true
+        csv.enabled true
+    }
+}
+
+// Check Style Config
+checkstyle {
+    ignoreFailures = true
+    showViolations = false
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        html.destination project.file("build/reports/checkstyle/main.html")
+    }
+}
+
+checkstyleTest.enabled = false
+
+task collectStats (type: ReportStats, dependsOn: "build") {
+    reportsURL = "https://www.cs.odu.edu/~bklarman/cs350/Tangerine2/tests/test/"
+}
+
+task deployReports (type: ReportsDeploy, dependsOn: 'collectStats') {
+//task report (type: ReportsDeploy, dependsOn: "collectStats") {
+    description 'Deploy reports and statistics to project website'
+    
+    deployDestination = '/home/bklarman/public_html/cs350/Tangerine2/tests/test/'
+}

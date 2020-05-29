@@ -1,0 +1,22 @@
+stages:
+  - build
+  - deploy
+
+
+build-job:
+  tags:
+    - green2
+  artifacts:
+    paths:
+        - README.md
+        - build/libs
+  stage: build
+  script:
+    - ./gradlew --no-daemon build javadoc jacocoTestReport collectStats
+    - eval $(ssh-agent -t 5m -s)
+    - ssh-add <(echo "$RSYNC_KEY")
+    - rsync -auvz -e "ssh" build/docs build/reports/ bklarman@atria.cs.odu.edu:/
+    - ssh-agent -k
+
+  only:
+    - implementation
