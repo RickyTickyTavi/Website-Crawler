@@ -1,4 +1,5 @@
 # Website Crawler
+Authors:: Richard Burleson (Project Lead), Jay Speidell, Brian Klarman, Mohammad Khalifa
 
 With a small group I was project lead for, we engineered a website scraper that analyzes static content of a website and provides statistical analysis on the findings. This software focuses on static content 
 of hypertext markup language (HTML) pages. The static content that this software system will concern itself with is: images, javascript, cascading style sheets (CSS), hyperlinks, and data files. The data files category will contain archives to include zip, tar, and 7z files; video containers to include mkv and mp4; audio containers to include m4a, mka, and ogg; and finally, other data files including deb, exe, and cpp files.
