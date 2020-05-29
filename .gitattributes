@@ -1,4 +1,4 @@
-*.java=linguist-language=Java
+*.java linguist-language=Java
 bin/* -linguist-detectable
 build/* -linguist-detectable
 config/* -linguist-detectable
