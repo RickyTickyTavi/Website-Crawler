@@ -1,1 +1,9 @@
-
+*.java=linguist-language=Java
+bin/* -linguist-detectable
+build/* -linguist-detectable
+config/* -linguist-detectable
+design/* -linguist-detectable
+gradle/* -linguist-detectable
+output/* -linguist-detectable
+shellscript/* -linguist-detectable
+src/* linguist-detectable
