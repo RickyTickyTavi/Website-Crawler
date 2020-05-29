@@ -7,3 +7,4 @@ gradle/* -linguist-detectable
 output/* -linguist-detectable
 shellscript/* -linguist-detectable
 src/* linguist-detectable
+src/main/java/edu/odu/cs/cs350/webanalysis linguist-detectable
