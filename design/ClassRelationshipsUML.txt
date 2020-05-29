@@ -1,0 +1,82 @@
+@startuml
+
+title Class Diagram for Package 'edu.odu.cs.cs350.webanalysis'
+
+/'
+class org.jsoup.select.Elements {
+    Element Element.select(String)
+}
+'/
+
+class WebsiteAnalysis {
+- website Website
+  +void main(String[] args)
+}
+
+class Website {
+    - Page[] pages
+    - String absolutePath
+    - String relativePath
+    - AssetTracker AssetTracker 
+    + static final map<int, String> locationTuple
+    + Website(String path)
+    + void exportText()
+    + void exportExcel()
+    + void exportJson()
+}
+WebsiteAnalysis "1" *-down- "1" Website: Composition
+
+class AssetTracker{
+    - map<String uri, String[] foundIn> imageUsedOn
+    - map<String uri, int size> archiveCounter
+    - map<String uri, int size> videoCounter
+    - map<String uri, int size> audioCounter
+    - map<String uri, int size> uncategorizedCounter
+    + void addImage(String path)
+    + void addArchive(String path)
+    + void addVideos(String path)
+    + void addAudio(String path)
+    + void addUncategorized(String path)
+    + void addAssetTracker(AssetTracker rhs)
+    + map<String, String[]> getImageUsage();
+    + map<String, int> getArchiveSizes();
+    + map<String, int> getVideoSizes();
+    + map<String, int> getAudioSizes();
+    + map<String, int> getUncategorizedSizes();
+}
+Website *-left- "1" AssetTracker
+Page *-up- "1" AssetTracker
+
+class Page {
+    - int numLocalImages // JSON, XL
+    - int numExternImages // JSON, XL
+    - int numScripts // JSON, XL
+    - int numCss // JSON, XL
+    - String[] images // JSON
+    - String[] scripts // JSON
+    - String[] css // JSON
+    - int numIntraLinks // JSON, XL
+    - int numInterLinks // JSON, XL
+    - int numExternLinks // JSON, XL
+    - double sizeOfImages // TEXT
+    - AssetTracker assetTracking // JSON 
+    + Page(String path)
+    + String getPagePath()
+    + int numLocalImages() 
+    + int getNumExternImages() 
+    + int getNumScripts()
+    + int getNumCss()
+    + String[] getImages()
+    + String[] getScripts()
+    + String[] getStyles()
+    + int getNumIntraLinks()  
+    + int getNumInterLinks() 
+    + int getNumExternLinks()
+    + double getSizeOfImages()
+    + AssetTracker getAssetsInfo()
+}
+Website "1" *-down- "many" Page: Collection of
+
+
+
+@enduml

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.odu.cs.cs350.webanalysis.TestAssetTracker" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-07-18T05:27:03" hostname="DESKTOP-1P1A82H" time="0.001">
+  <properties/>
+  <testcase name="testDefaultConstructor_receiveException" classname="edu.odu.cs.cs350.webanalysis.TestAssetTracker" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

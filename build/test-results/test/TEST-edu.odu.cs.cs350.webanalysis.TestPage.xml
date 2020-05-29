@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.odu.cs.cs350.webanalysis.TestPage" tests="3" skipped="0" failures="1" errors="0" timestamp="2019-07-18T05:27:02" hostname="DESKTOP-1P1A82H" time="0.124">
+  <properties/>
+  <testcase name="testArgConstructor" classname="edu.odu.cs.cs350.webanalysis.TestPage" time="0.098"/>
+  <testcase name="testDefaultConstructor_receiveException" classname="edu.odu.cs.cs350.webanalysis.TestPage" time="0.005"/>
+  <testcase name="testNonHtmlConstructor" classname="edu.odu.cs.cs350.webanalysis.TestPage" time="0.02">
+    <failure message="java.lang.AssertionError: &#10;Expected: is &quot;www.testing.com/blog.xml&quot;&#10;     but: was &quot;www.testing.com/src/test/data/complete/blog.xml&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: is &quot;www.testing.com/blog.xml&quot;
+     but: was &quot;www.testing.com/src/test/data/complete/blog.xml&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.junit.Assert.assertThat(Assert.java:865)
+	at org.junit.Assert.assertThat(Assert.java:832)
+	at edu.odu.cs.cs350.webanalysis.TestPage.testNonHtmlConstructor(TestPage.java:105)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:175)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:157)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,10 @@
+0.1M	./about.html
+0.2M	./blog.html
+0.2M	./blog.php
+0.2M	./blog.xml
+0.0M	./contact.html
+0.3M	./index.html
+0.1M	./proj1.html
+0.1M	./projects.html
+0.1M	./singlepost.html
+1.1

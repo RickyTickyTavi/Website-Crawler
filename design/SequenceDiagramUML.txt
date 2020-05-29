@@ -1,0 +1,71 @@
+#![Website Analysis]
+wa:WebsiteAnalysis[a]
+/ws:Website[a]
+/pg:Page[a]
+/txt:TextRow[a]
+/ex:ExcelRow[a]
+/jsn:JsonPageAttributes[a]
+/at:AssetTracker[a]
+/a:Asset[a]
+/aw:AssetWithSize[a]
+
+#
+wa:ws=ws.new(String path)
+ws:at.new()
+ws:export()
+[c:loop for each page]
+ws:pg=pg.new(String path)
+
+#
+[c:loop for each Image]
+pg:at.addImage()
+[/c]
+
+#
+[c:loop for each CSS, Script, and Link]
+pg:at.addScripts()
+pg:at.addCSS()
+pg:at.addLink()
+[/c]
+
+#
+[c:loop for each Archive, Video, Audio, and Uncategorized]
+pg:at.addArchive()
+pg:at.addVideos()
+pg:at.addAudio()
+pg:at.addUncategorized()
+[/c]
+[/c]
+[c:loop for each page]
+ws:pg.exportText()
+pg:at.exportText()
+at:getImageUsage()
+pg:getImages()
+pg:getSizeOfImages()
+ws:pg.exportExcel()
+pg:getImages()
+pg:getNumIntraLinks()
+pg:getNumInterLinks()
+pg:getNumExternLinks()
+pg:getNumCSS()
+pg:getScripts()
+
+ws:pg.exportJSON()
+pg:at.exportJSON()
+at:getImageUsage()
+at:getArchiveSizes()
+at:getVideoSizes()
+at:getAudioSizes()
+at:getUncategorizedSizes()
+pg:numLocalImages()
+pg:getNumExternImages()
+pg:getNumScripts()
+pg:getnumCSS()
+pg:getImages()
+pg:getScripts()
+pg:getStyles()
+pg:getNumInternLinks()
+pg:getNumExternLinks()
+pg:getnumIntraLinks()
+
+#
